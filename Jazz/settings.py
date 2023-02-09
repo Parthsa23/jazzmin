@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ticketing',
     'ticket_admin',
+    # 'admin_honeypot',
+    'import_export',
+
 ]
 
 MIDDLEWARE = [
@@ -152,7 +155,9 @@ JAZZMIN_SETTINGS = {
     # "site_logo":None,
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "ship-solid.png",
+    # "login_logo": "ship-solid.png",
+    "login_logo": "logo 1.png",
+
     # "login_logo": None,
 
     # Logo to use for login form in dark themes (defaults to login_logo)
@@ -245,7 +250,7 @@ JAZZMIN_SETTINGS = {
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     # "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
-    "order_with_respect_to": ["ticketing"],
+    "order_with_respect_to": ["auth","ticketing"],
 
     # Custom links to append to app groups, keyed on app name
     "custom_links": {
@@ -253,7 +258,7 @@ JAZZMIN_SETTINGS = {
             "name": "Chat Gpt", 
             "url": "https://chat.openai.com/chat", 
             "icon": "fas fa-comments",
-            "permissions": ["ghar.trips"]
+            "permissions": ["ticket_admin.trips"]
         }]
     },
 
@@ -262,7 +267,8 @@ JAZZMIN_SETTINGS = {
     "icons": {
         "auth": "fas fa-users-cog",
         # "ticketing": "fas fa-chevron-circle-right",
-        # "ticket_admin": "fas fa-circle",
+        # "ticket_admin": "fas fa-chevron-circle-right",
+        # "ticket_admin.admin.Trip":"fas fa-user",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
 
@@ -271,6 +277,7 @@ JAZZMIN_SETTINGS = {
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-circle",
     "default_icon_children": "fas fa-chevron-circle-right",
+    # "ticket_admin.admin":"fas fa-user",
 
     #################
     # Related Modal #
@@ -298,7 +305,7 @@ JAZZMIN_SETTINGS = {
     # - vertical_tabs
     # - collapsible
     # - carousel
-    "changeform_format": "carousel",
+    "changeform_format": "collapsible",
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # Add a language dropdown into the admin
@@ -315,7 +322,7 @@ JAZZMIN_UI_TWEAKS = {
     "footer_small_text": True,
     "body_small_text": False,
     "brand_small_text": False,
-    "brand_colour": "navbar-lightblue",
+    "brand_colour": "navbar-dark",
     "accent": "accent-primary",
     "navbar": "navbar-lightblue navbar-dark",
     "no_navbar_border": True,
@@ -345,3 +352,6 @@ JAZZMIN_UI_TWEAKS = {
 X_FRAME_OPTIONS = 'ALLOWALL'
 
 XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
+
+
+

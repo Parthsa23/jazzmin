@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.options import TabularInline
-# from import_export.admin import ExportActionMixin
+from import_export.admin import ImportExportModelAdmin
 # from .models import RazorpayPayment
 
 from ticket_admin import models
@@ -96,7 +96,7 @@ class BoatAdmin(admin.ModelAdmin):
         # obj.modifier = request.user
         obj.save()
 
-class TripAdmin(admin.ModelAdmin):
+class TripAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ['route', 'boat', 'departure_date_time']
     list_display = ['__str__', 'created_by', 'created_on', 'status', ]
     list_filter = ['departure_date', 'departure_time', 'created_by', 'created_on', 'status']
@@ -172,14 +172,14 @@ class OrderAdmin(admin.ModelAdmin):
         obj.save()
 
 admin.site.register(models.Order, OrderAdmin)
-admin.site.register(models.BoatCategory, BoatCategoryAdmin)
-admin.site.register(models.BoatType, BoatTypeAdmin)
+# admin.site.register(models.BoatCategory, BoatCategoryAdmin)
+# admin.site.register(models.BoatType, BoatTypeAdmin)
 admin.site.register(models.Port, PortAdmin)
 admin.site.register(models.ValueAddedService, ValueAddedServiceAdmin)
-admin.site.register(models.Boat, BoatAdmin)
-admin.site.register(models.BoatOwner, BoatOwnerAdmin)
+# admin.site.register(models.Boat, BoatAdmin)
+# admin.site.register(models.BoatOwner, BoatOwnerAdmin)
 admin.site.register(models.Route, RouteAdmin)
-# admin.site.register(models.RouteType, RouteTypeAdmin)
+admin.site.register(models.RouteType, RouteTypeAdmin)
 admin.site.register(models.Trip, TripAdmin)
 admin.site.register(models.Parcel, ParcelAdmin)
 admin.site.register(models.Pet, PetAdmin)

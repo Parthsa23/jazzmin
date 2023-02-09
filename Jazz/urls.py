@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+# from admin_honeypot.urls import urlpatterns as honeypot_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('admin/', include('admin_honeypot.urls')),
+
+    # url(r'^admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+
     
 ]
